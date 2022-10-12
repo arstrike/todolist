@@ -1,66 +1,81 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# To Do List - Laravel Vue Vite
 
-## About Laravel
+Aplicacion de lista de tareas.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Obligatorios
+ - PHP ^8.0.2
+ - Composer
+ - Node ^16
+ - NPM ^7.10
+ - MySQL
+Opcionales, si ya cuenta con un servidor Apache no es necesario
+ - XAMPP
+ Si no cuenta con todo los requisitos la APP puede que no pueda funcionar correctamente.
+## Instalación
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Instalamos todas las dependencias de Laravel
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+  composer install --no-dev
+```
 
-## Laravel Sponsors
+Instalamos toda las dependencias de Node
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+  npm install
+``` 
+## Configuracion
 
-### Premium Partners
+Bien ahora necesitamos configurar la base de datos, para ello necesitamos copiar el archivo `.env.example`
+y renombrarlo a `.env`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Ahora con el terminar posicionado en nuestro proyecto ejecutamos el siguiente comando para generar la `APP_KEY` de Laravel
+```bash
+  php artisan key:generate
+``` 
+Pasamos a configurar la DB(Base de datos) del proyecto, para ello debemos crear una DB con el nombre que desee.
+En nuestro archivo .env configurar las variables de entorno de la DB de esta forma.
 
-## Contributing
+- `DB_DATABASE=`Aqui va el nombre que eligio de la DB
+- `DB_USERNAME=`root(si esta usando xampp deje el valor que esta por defecto)
+- `DB_PASSWORD=`Aqui va la contraseña que eligio de la DB si usa xampp deje el campo vacio
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Una vez configurado las variables de entorno de Laravel procedemos a crear nuestras tablas de la DB, para ello necesitamos ejecutar el comando artisan
+```bash
+  php artisan migrate
+``` 
+## Desplegar
 
-## Code of Conduct
+Para desplegar la APP abrimos 2 terminales en el proyecto.
+En el primero levantamos el servidor backend de Laravel con el comando
+```bash
+  php artisan serve
+``` 
+Le aparecera el mensaje de confirmacion como el siguiente
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+`Server running on [http://127.0.0.1:8000]`
 
-## Security Vulnerabilities
+Ahora en el otro terminal necesitamos levantar el compilador de desarrollo de frontend con el comando
+```bash
+  npm run dev
+``` 
+Le aparecera el mensaje de confirmacion como el siguiente
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+`VITE v3.1.7  ready in 431 ms`
 
-## License
+`➜  Local:   http://127.0.0.1:5173/`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+`➜  Network: use --host to expose`
+
+`LARAVEL v9.35.1  plugin v0.6.1`
+
+`➜  APP_URL: http://localhost:8000`
+
+Con ello ya tenemos desplegada la APP en ambiente local y podemos visitar la APP por medio del link
+`http://localhost:8000` o `http://127.0.0.1:8000`.
