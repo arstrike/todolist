@@ -128,7 +128,7 @@
 			<label class="task-list-item-label">
         <input type="checkbox" @click="completed(item.id)" v-model="checkBoxArray[item.id]" v-if="checkBoxArray[item.id]">
         <input type="checkbox" @click="completed(item.id)" v-model="checkBoxArray[item.id]" v-else>
-				<span>{{item.id}}. {{item.description}} {{checkBoxArray[item.id]}}</span>
+				<span>{{item.id}}. {{item.description}}</span>
 			</label>
 			<div class="btn-group">
         <span class="edit-btn" title="Edit Task" @click="update(item.id)"><i class="fas fa-pencil-alt"></i></span>
