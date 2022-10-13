@@ -14,6 +14,7 @@ Obligatorios
  - Node ^16
  - NPM ^7.10
  - MySQL
+
 Opcionales, si ya cuenta con un servidor Apache no es necesario
  - XAMPP
  Si no cuenta con todo los requisitos la APP puede que no pueda funcionar correctamente.
