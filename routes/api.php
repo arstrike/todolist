@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('task/list', [App\Http\Controllers\Api\TaskController::class, 'index']);
-Route::post('task/store', [App\Http\Controllers\Api\TaskController::class, 'store']);
-Route::put('task/update/{task}', [App\Http\Controllers\Api\TaskController::class, 'update']);
-Route::put('task/complete/{task}', [App\Http\Controllers\Api\TaskController::class, 'complete_task']);
-Route::delete('task/delete/{task}', [App\Http\Controllers\Api\TaskController::class, 'delete']);
+Route::get('task/list', [App\Http\Controllers\API\TaskController::class, 'index']);
+Route::post('task/store', [App\Http\Controllers\API\TaskController::class, 'store']);
+Route::put('task/update/{task}', [App\Http\Controllers\API\TaskController::class, 'update']);
+Route::put('task/complete/{task}', [App\Http\Controllers\API\TaskController::class, 'complete_task']);
+Route::delete('task/delete/{task}', [App\Http\Controllers\API\TaskController::class, 'delete']);
